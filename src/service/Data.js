@@ -362,5 +362,371 @@ export const eleves = [
    prenom: "أمير",
    classe: "CE2"
  }
+
+// classe Cm1
+
+{
+   code_massar: "D204129730",
+   nom: "شفيع",
+   prenom: "الاء",
+   classe: "CM1"
+ },
+ {
+   code_massar: "D206098506",
+   nom: "أوحمو",
+   prenom: "آدم",
+   classe: "CM1"
+ },
+ {
+   code_massar: "D206148574",
+   nom: "الهلالي",
+   prenom: "هناء",
+   classe: "CM1"
+ },
+ {
+   code_massar: "D209143260",
+   nom: "الحلوي",
+   prenom: "آلاء ",
+   classe: "CM1"
+ },
+ {
+   code_massar: "D211137373",
+   nom: "بطاح ",
+   prenom: "لجين",
+   classe: "CM1"
+ },
+ {
+   code_massar: "D212138942",
+   nom: "مبروكي",
+   prenom: "ايوب",
+   classe: "CM1"
+ },
+ {
+   code_massar: "D219157817",
+   nom: "الادريسي",
+   prenom: "هيثم",
+   classe: "CM1"
+ },
+ {
+   code_massar: "D220070596",
+   nom: "الداعي",
+   prenom: "ايناس",
+   classe: "CM1"
+ },
+ {
+   code_massar: "D220072978",
+   nom: "بلعسراوي",
+   prenom: "محمد أمين",
+   classe: "CM1"
+ },
+ {
+   code_massar: "D220073172",
+   nom: "رشدي",
+   prenom: "احلام",
+   classe: "CM1"
+ },
+ {
+   code_massar: "D220162888",
+   nom: "الدحماني",
+   prenom: "مريم",
+   classe: "CM1"
+ },
+ {
+   code_massar: "D221075588",
+   nom: "اقنية",
+   prenom: "محمد",
+   classe: "CM1"
+ },
+ {
+   code_massar: "D221104837",
+   nom: "البكري",
+   prenom: "زياد",
+   classe: "CM1"
+ },
+ {
+   code_massar: "D222070605",
+   nom: "أمغود",
+   prenom: "عمران",
+   classe: "CM1"
+ },
+ {
+   code_massar: "D222073188",
+   nom: "المعلمي",
+   prenom: "أحمد",
+   classe: "CM1"
+ },
+ {
+   code_massar: "D222073423",
+   nom: "هموني",
+   prenom: "اسماعيل",
+   classe: "CM1"
+ },
+ {
+   code_massar: "D223017131",
+   nom: "بنسليمان",
+   prenom: "تسنيم",
+   classe: "CM1"
+ },
+ {
+   code_massar: "D223073140",
+   nom: "بوجنة",
+   prenom: "محمد أمجد",
+   classe: "CM1"
+ },
+ {
+   code_massar: "D223075714",
+   nom: "السحباني",
+   prenom: "بدر الدين",
+   classe: "CM1"
+ },
+ {
+   code_massar: "D224025890",
+   nom: "اوعنان",
+   prenom: "فاطمة",
+   classe: "CM1"
+ },
+ {
+   code_massar: "D224073252",
+   nom: "العبقري",
+   prenom: "نجلاء",
+   classe: "CM1"
+ },
+ {
+   code_massar: "D225073446",
+   nom: "الخاتيري",
+   prenom: "محمد رضى",
+   classe: "CM1"
+ },
+ {
+   code_massar: "D226075724",
+   nom: "أومرو",
+   prenom: "حمزة",
+   classe: "CM1"
+ },
+ {
+   code_massar: "D227073281",
+   nom: "زنطور",
+   prenom: "عمران",
+   classe: "CM1"
+ },
+ {
+   code_massar: "D227073490",
+   nom: "رشوق",
+   prenom: "الاء",
+   classe: "CM1"
+ },
+ {
+   code_massar: "D227076209",
+   nom: "القاسمي",
+   prenom: "صفوان",
+   classe: "CM1"
+ },
+ {
+   code_massar: "D227113913",
+   nom: "عوان",
+   prenom: "ملاك",
+   classe: "CM1"
+ },
+ {
+   code_massar: "D227117280",
+   nom: "قشاش",
+   prenom: "عمران",
+   classe: "CM1"
+ },
+ {
+   code_massar: "D229073385",
+   nom: "الطنطاوي",
+   prenom: "مروة",
+   classe: "CM1"
+ },
+
+ //classe CM2 
+ 
+ {
+   code_massar: "D191148023",
+   nom: "العريشي",
+   prenom: "اريج",
+   classe: "CM2"
+ },
+ {
+   code_massar: "D195087885",
+   nom: "بنعمر",
+   prenom: "ريم",
+   classe: "CM2"
+ },
+ {
+   code_massar: "D198117390",
+   nom: "اقنية",
+   prenom: "أحمد",
+   classe: "CM2"
+ },
+ {
+   code_massar: "D203017372",
+   nom: "عزوزي",
+   prenom: "عبد الرحمان",
+   classe: "CM2"
+ },
+ {
+   code_massar: "D203155639",
+   nom: "الصفريوي",
+   prenom: "صفوان",
+   classe: "CM2"
+ },
+ {
+   code_massar: "D204017421",
+   nom: "الفحشوش",
+   prenom: "رائد",
+   classe: "CM2"
+ },
+ {
+   code_massar: "D205144679",
+   nom: "لحمامي",
+   prenom: "مريم",
+   classe: "CM2"
+ },
+ {
+   code_massar: "D206142603",
+   nom: "اشعو",
+   prenom: "يحيى",
+   classe: "CM2"
+ },
+ {
+   code_massar: "D207128277",
+   nom: "اعزيزي",
+   prenom: "زينب",
+   classe: "CM2"
+ },
+ {
+   code_massar: "D207146109",
+   nom: "ايتيصحا",
+   prenom: "ضحى",
+   classe: "CM2"
+ },
+ {
+   code_massar: "D208142602",
+   nom: "المبتسم",
+   prenom: "سعد",
+   classe: "CM2"
+ },
+ {
+   code_massar: "D209010317",
+   nom: "بنعلي",
+   prenom: "أمجد",
+   classe: "CM2"
+ },
+ {
+   code_massar: "D209149367",
+   nom: "علوان",
+   prenom: "جاهد",
+   classe: "CM2"
+ },
+ {
+   code_massar: "D209161837",
+   nom: "املكي",
+   prenom: "سلمى",
+   classe: "CM2"
+ },
+ {
+   code_massar: "D210124729",
+   nom: "بردوزي",
+   prenom: "حديفة",
+   classe: "CM2"
+ },
+ {
+   code_massar: "D211106584",
+   nom: "ملاس",
+   prenom: "ياسمين",
+   classe: "CM2"
+ },
+ {
+   code_massar: "D212090038",
+   nom: "اغانيم",
+   prenom: "هديل",
+   classe: "CM2"
+ },
+ {
+   code_massar: "D212122874",
+   nom: "البودي",
+   prenom: "خديجة",
+   classe: "CM2"
+ },
+ {
+   code_massar: "D212123924",
+   nom: "الدندوني",
+   prenom: "رتاج",
+   classe: "CM2"
+ },
+ {
+   code_massar: "D213008675",
+   nom: "السهمي",
+   prenom: "إلياس",
+   classe: "CM2"
+ },
+ {
+   code_massar: "D213064389",
+   nom: "لمرون",
+   prenom: "آدم",
+   classe: "CM2"
+ },
+ {
+   code_massar: "D213095518",
+   nom: "الخياط",
+   prenom: "صفاء",
+   classe: "CM2"
+ },
+ {
+   code_massar: "D214124900",
+   nom: "النهيش",
+   prenom: "جنان",
+   classe: "CM2"
+ },
+ {
+   code_massar: "D214184632",
+   nom: "بونوارة",
+   prenom: "لينا",
+   classe: "CM2"
+ },
+ {
+   code_massar: "D215002579",
+   nom: "الماموني",
+   prenom: "ملاك",
+   classe: "CM2"
+ },
+ {
+   code_massar: "D215095300",
+   nom: "الحيان",
+   prenom: "فاطمة الزهراء",
+   classe: "CM2"
+ },
+ {
+   code_massar: "D215124736",
+   nom: "راشد",
+   prenom: "غفران",
+   classe: "CM2"
+ },
+ {
+   code_massar: "D217124746",
+   nom: "جاوري",
+   prenom: "هيثم",
+   classe: "CM2"
+ },
+ {
+   code_massar: "D218094591",
+   nom: "لعسيري",
+   prenom: "إلياس",
+   classe: "CM2"
+ },
+ {
+   code_massar: "D218095367",
+   nom: "رابح",
+   prenom: "أيوب",
+   classe: "CM2"
+ },
+ {
+   code_massar: "D218122854",
+   nom: "المنصوري",
+   prenom: "نعيمة",
+   classe: "CM2"
+ }
 ]
 
