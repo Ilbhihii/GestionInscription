@@ -1,12 +1,7 @@
 <?php
 require 'vendor/autoload.php';
 require 'db.php';
-
-use PhpOffice\PhpSpreadsheet\Spreadsheet;
-use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
-use PhpOffice\PhpSpreadsheet\Style\Border;
-use PhpOffice\PhpSpreadsheet\Style\Alignment;
-use PhpOffice\PhpSpreadsheet\Worksheet\Drawing;
+require_once('tcpdf/tcpdf.php');
 
 // Vérification
 if (!isset($_GET['code_massar'])) {
@@ -35,72 +30,77 @@ if (!$data) {
 // Calcul du montant total
 $total = $data['prix_mensuel'] + $data['prix_transport'];
 
-// Création du fichier Excel
-$spreadsheet = new Spreadsheet();
-$sheet = $spreadsheet->getActiveSheet();
-$sheet->setTitle("Reçu Paiement");
+// Création du PDF
+$pdf = new TCPDF();
+$pdf->SetCreator(PDF_CREATOR);
+$pdf->SetAuthor('SUP MTI');
+$pdf->SetTitle('Reçu Paiement');
+$pdf->SetMargins(15, 20, 15);
+$pdf->AddPage('P', 'A4');
 
 // Logo
-$logoPath = __DIR__ . '/images/supmti-logo-reconnu-01.png';
+$logoPath = __DIR__ . 'C:\Users\user\Downloads\supmti-logo-reconnu-01.png';
 if (file_exists($logoPath)) {
-    $drawing = new Drawing();
-    $drawing->setName('Logo SUP MTI');
-    $drawing->setDescription('Logo SUP MTI');
-    $drawing->setPath($logoPath);
-    $drawing->setHeight(100);
-    $drawing->setCoordinates('A1');
-    $drawing->setWorksheet($sheet);
+    $pdf->Image($logoPath, 15, 10, 40); // X, Y, Taille
+    $pdf->Ln(25); // espace après le logo
 }
 
-// Styles
-$styleTitre = [
-    'font' => ['bold' => true, 'size' => 14],
-    'alignment' => ['horizontal' => Alignment::HORIZONTAL_CENTER],
-];
-$styleContenu = [
-    'borders' => ['allBorders' => ['borderStyle' => Border::BORDER_THIN]],
-    'alignment' => ['horizontal' => Alignment::HORIZONTAL_LEFT],
-];
+// Titre principal
+$pdf->SetFont('helvetica', 'B', 16);
+$pdf->Cell(0, 10, 'REÇU DE PAIEMENT', 0, 1, 'C');
+$pdf->Ln(5);
 
-// Reçu Direction
-$sheet->mergeCells('A7:B7');
-$sheet->setCellValue('A7', 'REÇU POUR LA DIRECTION');
-$sheet->getStyle('A7')->applyFromArray($styleTitre);
 
-$sheet->setCellValue('A8', 'Nom de l’élève');
-$sheet->setCellValue('B8', $data['nom'] . ' ' . $data['prenom']);
-$sheet->setCellValue('A9', 'Classe');
-$sheet->setCellValue('B9', $data['classe']);
-$sheet->setCellValue('A10', 'Date de paiement');
-$sheet->setCellValue('B10', $data['date_paiement']);
-$sheet->setCellValue('A11', 'Montant Total');
-$sheet->setCellValue('B11', $total . ' DH');
-$sheet->getStyle('A8:B11')->applyFromArray($styleContenu);
+// Contenu HTML (double reçu)
+$html = '
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 12px;
+}
+td, th {
+    border: 1px solid #000;
+    padding: 6px;
+}
+th {
+    background-color: #f2f2f2;
+    text-align: center;
+}
+.titre {
+    font-weight: bold;
+    text-align: center;
+    font-size: 14px;
+}
+</style>
 
-// Reçu Client
-$sheet->mergeCells('A13:B13');
-$sheet->setCellValue('A13', 'REÇU POUR LE CLIENT');
-$sheet->getStyle('A13')->applyFromArray($styleTitre);
+<img src="C:\Users\user\Downloads\supmti-logo-reconnu-01.png" alt="Logo" style="width: 100px; height: auto; margin-bottom: 20px;">
+<p class="titre">REÇU POUR LA DIRECTION</p>
+<table>
+    <tr><th>Nom de l\'élève</th><td>'.$data['nom'].' '.$data['prenom'].'</td></tr>
+    <tr><th>Classe</th><td>'.$data['classe'].'</td></tr>
+    <tr><th>Date de paiement</th><td>'.$data['date_paiement'].'</td></tr>
+    <tr><th>Montant Total</th><td>'.$total.' DH</td></tr>
+</table>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br>-------------------------------------------------------------------------------------------------------------------------------------------<br>
+<br><br>
+<br><br>
+<img src="C:\Users\user\Downloads\supmti-logo-reconnu-01.png" alt="Logo" style="width: 100px; height: auto; margin-bottom: 20px;">
+<p class="titre">REÇU POUR LE CLIENT</p>
+<table>
+    <tr><th>Nom de l\'élève</th><td>'.$data['nom'].' '.$data['prenom'].'</td></tr>
+    <tr><th>Classe</th><td>'.$data['classe'].'</td></tr>
+    <tr><th>Date de paiement</th><td>'.$data['date_paiement'].'</td></tr>
+    <tr><th>Montant Total</th><td>'.$total.' DH</td></tr>
+</table>
+';
 
-$sheet->setCellValue('A14', 'Nom de l’élève');
-$sheet->setCellValue('B14', $data['nom'] . ' ' . $data['prenom']);
-$sheet->setCellValue('A15', 'Classe');
-$sheet->setCellValue('B15', $data['classe']);
-$sheet->setCellValue('A16', 'Date de paiement');
-$sheet->setCellValue('B16', $data['date_paiement']);
-$sheet->setCellValue('A17', 'Montant Total');
-$sheet->setCellValue('B17', $total . ' DH');
-$sheet->getStyle('A14:B17')->applyFromArray($styleContenu);
+$pdf->SetFont('helvetica', '', 11);
+$pdf->writeHTML($html, true, false, true, false, '');
 
-// Centrage des titres
-$sheet->getStyle('A7:B7')->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
-$sheet->getStyle('A13:B13')->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
-
-// Télécharger
-$filename = "Recu_paiement_" . $data['code_massar'] . ".xlsx";
-header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-header("Content-Disposition: attachment; filename=\"$filename\"");
-
-$writer = new Xlsx($spreadsheet);
-$writer->save("php://output");
-exit;
+// Sortie du PDF
+$pdf->Output("Recu_paiement_{$data['code_massar']}.pdf", 'I');
